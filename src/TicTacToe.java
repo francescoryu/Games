@@ -1,7 +1,10 @@
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.List;
 
 /**
@@ -14,7 +17,7 @@ public class TicTacToe extends JFrame {
 
     JPanel infoPanel;
     JPanel playGroundPanel;
-    List<JButton> buttonList;
+    JButton[] btnArray = new JButton[9];
 
     public TicTacToe() {
 
@@ -24,6 +27,11 @@ public class TicTacToe extends JFrame {
 
         playGroundPanel = new JPanel();
         playGroundPanel.setLayout(new GridLayout(3, 3));
+        for (int i = 0; i < 9; i++) {
+
+        }
+
+
 
         this.add(infoPanel, BorderLayout.NORTH);
         this.add(playGroundPanel, BorderLayout.CENTER);
