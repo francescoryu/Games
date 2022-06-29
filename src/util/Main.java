@@ -1,15 +1,30 @@
-import TicTacToe.TicTacToe;
+package util;
+
+import home.Home;
+import tictactoe.TicTacToe;
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author: Francesco Ryu
+ * @date: 28.06.2022
+ * @version: 1.0
+ */
+
 public class Main extends JFrame{
     JTabbedPane tabbedPane;
     TicTacToe ticTacToe;
+    Home home;
+
     public Main() {
         ticTacToe = new TicTacToe();
+        home = new Home();
+
         tabbedPane = new JTabbedPane();
-        tabbedPane.addTab("TicTacToe", ticTacToe);
+        tabbedPane.add("Home", home);
+        tabbedPane.addTab("Tic-Tac-Toe", ticTacToe);
+
 
         this.add(tabbedPane);
         this.setSize(new Dimension(900, 600));
