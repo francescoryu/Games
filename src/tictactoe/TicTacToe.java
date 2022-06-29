@@ -194,7 +194,7 @@ public class TicTacToe extends JPanel {
          * This button will set everything like the beginning
          */
 
-        clearButton = new JButton(" Clear ");
+        clearButton = new JButton("  Clear  ");
         clearButton.setFont(labelFont);
         clearButton.addActionListener(e -> {
             label.setText("Welcome");
