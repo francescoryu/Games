@@ -30,7 +30,6 @@ public class TicTacToe extends JPanel {
     JButton[] btnArray = new JButton[9];
     JButton restartButton;
     JButton clearButton;
-    JButton saveChangesPlayerNames;
 
     JLabel label;
     JLabel player1Label;
