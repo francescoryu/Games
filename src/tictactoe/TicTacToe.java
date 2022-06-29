@@ -378,6 +378,9 @@ public class TicTacToe extends JPanel {
             label.setText(inputPlayer2.getText() + " Wins!");
             winPlayer2++;
         }
+        else if (cntrTie == 9) {
+            label.setText("It's a tie!");
+        }
     }
 
     /**
