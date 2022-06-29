@@ -74,6 +74,8 @@ public class TicTacToe extends JPanel {
         this.add(wholePanel, BorderLayout.CENTER);
 
     }
+
+    //Checks who's turn it is
     public void actionPerformed(ActionEvent e) {
         Font buttonFont = new Font("Monaco", Font.BOLD, 50);
         for (int i = 0; i < 9; i++) {
@@ -102,6 +104,10 @@ public class TicTacToe extends JPanel {
             }
         }
     }
+
+    /**
+     * This method goes through every possible combination for O and X to show the winner
+     */
     public void winnerCheck() {
             //Checks X for rows
             if (btnArray[0].getText().equals("X") && btnArray[1].getText().equals("X") && btnArray[2].getText().equals("X")) {
@@ -177,6 +183,13 @@ public class TicTacToe extends JPanel {
 
         }
 
+    /**
+     * This method sets the winner's button red
+     * @param btn1
+     * @param btn2
+     * @param btn3
+     */
+
 
 
     public void xWin(int btn1, int btn2, int btn3) {
@@ -188,6 +201,13 @@ public class TicTacToe extends JPanel {
             btnArray[i].setEnabled(false);
         }
     }
+
+    /**
+     * This method sets the winner's button red
+     * @param btn1
+     * @param btn2
+     * @param btn3
+     */
 
     public void Owin(int btn1, int btn2, int btn3) {
         btnArray[btn1].setBackground(Color.RED);
