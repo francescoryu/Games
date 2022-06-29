@@ -1,3 +1,5 @@
+import TicTacToe.TicTacToe;
+
 import javax.swing.*;
 
 public class Main {

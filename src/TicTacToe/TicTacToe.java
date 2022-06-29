@@ -1,3 +1,5 @@
+package TicTacToe;
+
 import javax.swing.*;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
@@ -62,6 +64,7 @@ public class TicTacToe extends JFrame {
                         player1Turn = false;
                         //btnArray[i].setEnabled(false);
                         btnArray[i].setForeground(Color.BLACK);
+                        winnerCheck();
                     }
                 } else {
                     if (btnArray[i].getText().equals("")) {
@@ -69,11 +72,28 @@ public class TicTacToe extends JFrame {
                         btnArray[i].setFont(buttonFont);
                         player1Turn = true;
                         label.setText("X Turn");
-                        //btnArray[i].setEnabled(false);
                         btnArray[i].setForeground(Color.RED);
+                        //btnArray[i].setEnabled(false);
+
                     }
                 }
             }
+        }
+    }
+    public void winnerCheck() {
+        if (btnArray[0].getText().equals("X") && btnArray[1].getText().equals("X") && btnArray[2].getText().equals("X")) {
+            xWin(0, 1, 2);
+        }
+
+    }
+
+    public void xWin(int btn1, int btn2, int btn3) {
+        btnArray[btn1].setBackground(Color.BLUE);
+        btnArray[btn2].setBackground(Color.BLUE);
+        btnArray[btn3].setBackground(Color.BLUE);
+
+        for (int i = 0; i < 9; i++) {
+            btnArray[i].setEnabled(false);
         }
     }
 
