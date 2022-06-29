@@ -16,11 +16,13 @@ public class TicTacToe extends JFrame {
 
     JPanel infoPanel;
     JPanel playGroundPanel;
+    JPanel buttonPanel;
+
     JButton[] btnArray = new JButton[9];
 
     JLabel label;
 
-    boolean player1Turn;
+    boolean player1Turn = false;
 
     public TicTacToe() {
 
@@ -44,11 +46,12 @@ public class TicTacToe extends JFrame {
             playGroundPanel.add(btnArray[i]);
         }
 
+        buttonPanel = new JPanel();
 
         this.add(infoPanel, BorderLayout.NORTH);
         this.add(playGroundPanel, BorderLayout.CENTER);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(333, 380);
+        this.setSize(333, 427);
         this.setVisible(true);
 
     }
@@ -56,7 +59,7 @@ public class TicTacToe extends JFrame {
         Font buttonFont = new Font("Monaco", Font.BOLD, 50);
         for (int i = 0; i < 9; i++) {
             if (e.getSource() == btnArray[i]) {
-                if (player1Turn) {
+                if (player1Turn == true) {
                     if (btnArray[i].getText().equals("")) {
                         btnArray[i].setText("X");
                         btnArray[i].setFont(buttonFont);
@@ -83,6 +86,7 @@ public class TicTacToe extends JFrame {
     public void winnerCheck() {
         if (btnArray[0].getText().equals("X") && btnArray[1].getText().equals("X") && btnArray[2].getText().equals("X")) {
             xWin(0, 1, 2);
+            label.setText("X Wins!");
         }
 
     }
