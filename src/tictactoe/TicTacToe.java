@@ -20,7 +20,7 @@ public class TicTacToe extends JPanel {
     JPanel buttonPanel;
     JPanel playPanel;
     JPanel playerNamePanel;
-    JPanel emptyPanel;
+    JPanel scorePanel;
 
     JCheckBox reversePlayer;
 
@@ -29,10 +29,19 @@ public class TicTacToe extends JPanel {
 
     JButton[] btnArray = new JButton[9];
     JButton restartButton;
+    JButton clearButton;
+    JButton saveChangesPlayerNames;
 
     JLabel label;
     JLabel player1Label;
     JLabel player2Label;
+    JLabel scoreLabel;
+    JLabel player1ScoreLabel;
+    JLabel player2ScoreLabel;
+
+    int winPlayer1 = 0;
+    int winPlayer2 = 0;
+
 
     boolean player1Turn = false;
 
@@ -42,8 +51,21 @@ public class TicTacToe extends JPanel {
         Font labelFont = new Font("Monaco", Font.BOLD, 20);
         Font nameFont = new Font("Monaco", Font.BOLD, 14);
 
-        emptyPanel = new JPanel();
-        emptyPanel.setPreferredSize(new Dimension(200, 200));
+        scorePanel = new JPanel();
+        scorePanel.setPreferredSize(new Dimension(200, 240));
+
+        scoreLabel = new JLabel("         Score         ");
+        scoreLabel.setFont(labelFont);
+
+        player1ScoreLabel = new JLabel();
+        player1ScoreLabel.setFont(labelFont);
+
+        player2ScoreLabel = new JLabel();
+        player2ScoreLabel.setFont(labelFont);
+
+        scorePanel.add(scoreLabel);
+        scorePanel.add(player1ScoreLabel);
+        scorePanel.add(player2ScoreLabel);
 
         playerNamePanel = new JPanel();
 
@@ -103,6 +125,7 @@ public class TicTacToe extends JPanel {
             }
         });
 
+
         playerNamePanel.add(player1Label);
         playerNamePanel.add(inputPlayer1);
         playerNamePanel.add(player2Label);
@@ -139,6 +162,9 @@ public class TicTacToe extends JPanel {
                 cntrTie = 0;
             }
 
+            player1ScoreLabel.setText("         " + inputPlayer1.getText() + " : " + winPlayer1 + "         ");
+            player2ScoreLabel.setText("         " + inputPlayer2.getText() + " : " + winPlayer2 + "         ");
+
             /**
              * Checks if the checkbox is selected. This will decide who will start the game
              */
@@ -165,8 +191,33 @@ public class TicTacToe extends JPanel {
             }
         });
 
+        /**
+         * This button will set everything like the beginning
+         */
+
+        clearButton = new JButton(" Clear ");
+        clearButton.setFont(labelFont);
+        clearButton.addActionListener(e -> {
+            label.setText("Welcome");
+            inputPlayer1.setText("");
+            inputPlayer2.setText("");
+            reversePlayer.setSelected(false);
+            player1ScoreLabel.setText("");
+            player2ScoreLabel.setText("");
+            winPlayer1 = 0;
+            winPlayer2 = 0;
+
+            for (int i = 0; i < 9; i++) {
+                btnArray[i].setEnabled(false);
+                btnArray[i].setText("");
+                btnArray[i].setBackground(null);
+            }
+
+        });
+
         buttonPanel = new JPanel();
         buttonPanel.setPreferredSize(new Dimension(333, 47));
+        buttonPanel.add(clearButton);
         buttonPanel.add(restartButton);
 
         playPanel = new JPanel();
@@ -179,7 +230,7 @@ public class TicTacToe extends JPanel {
 
         this.add(playerNamePanel, BorderLayout.WEST);
         this.add(playPanel);
-        this.add(emptyPanel);
+        this.add(scorePanel);
 
     }
 
@@ -232,12 +283,15 @@ public class TicTacToe extends JPanel {
         if (btnArray[0].getText().equals("X") && btnArray[1].getText().equals("X") && btnArray[2].getText().equals("X")) {
             xWin(0, 1, 2);
             label.setText(inputPlayer1.getText() + " Wins!");
+            winPlayer1++;
         } else if (btnArray[3].getText().equals("X") && btnArray[4].getText().equals("X") && btnArray[5].getText().equals("X")) {
             xWin(3, 4, 5);
             label.setText(inputPlayer1.getText() + " Wins!");
+            winPlayer1++;
         } else if (btnArray[6].getText().equals("X") && btnArray[7].getText().equals("X") && btnArray[8].getText().equals("X")) {
             xWin(6, 7, 8);
             label.setText(inputPlayer1.getText() + " Wins!");
+            winPlayer1++;
         }
 
         /**
@@ -247,12 +301,15 @@ public class TicTacToe extends JPanel {
         else if (btnArray[0].getText().equals("X") && btnArray[3].getText().equals("X") && btnArray[6].getText().equals("X")) {
             xWin(0, 3, 6);
             label.setText(inputPlayer1.getText() + " Wins!");
+            winPlayer1++;
         } else if (btnArray[1].getText().equals("X") && btnArray[4].getText().equals("X") && btnArray[7].getText().equals("X")) {
             xWin(1, 4, 7);
             label.setText(inputPlayer1.getText() + " Wins!");
+            winPlayer1++;
         } else if (btnArray[2].getText().equals("X") && btnArray[5].getText().equals("X") && btnArray[8].getText().equals("X")) {
             xWin(2, 5, 8);
             label.setText(inputPlayer1.getText() + " Wins!");
+            winPlayer1++;
         }
 
         /**
@@ -262,9 +319,11 @@ public class TicTacToe extends JPanel {
         else if (btnArray[0].getText().equals("X") && btnArray[4].getText().equals("X") && btnArray[8].getText().equals("X")) {
             xWin(0, 4, 8);
             label.setText(inputPlayer1.getText() + " Wins!");
+            winPlayer1++;
         } else if (btnArray[2].getText().equals("X") && btnArray[4].getText().equals("X") && btnArray[6].getText().equals("X")) {
             xWin(2, 4, 6);
             label.setText(inputPlayer1.getText() + " Wins!");
+            winPlayer1++;
         }
             /*else if (cntrTie == 9) {
                 label.setText("It's a tie!");
@@ -278,12 +337,15 @@ public class TicTacToe extends JPanel {
         else if (btnArray[0].getText().equals("O") && btnArray[1].getText().equals("O") && btnArray[2].getText().equals("O")) {
             Owin(0, 1, 2);
             label.setText(inputPlayer2.getText() + " Wins!");
+            winPlayer2++;
         } else if (btnArray[3].getText().equals("O") && btnArray[4].getText().equals("O") && btnArray[5].getText().equals("O")) {
             Owin(3, 4, 5);
             label.setText(inputPlayer2.getText() + " Wins!");
+            winPlayer2++;
         } else if (btnArray[6].getText().equals("O") && btnArray[7].getText().equals("O") && btnArray[8].getText().equals("O")) {
             Owin(6, 7, 8);
             label.setText(inputPlayer2.getText() + " Wins!");
+            winPlayer2++;
         }
 
         /**
@@ -293,12 +355,15 @@ public class TicTacToe extends JPanel {
         else if (btnArray[0].getText().equals("O") && btnArray[3].getText().equals("O") && btnArray[6].getText().equals("O")) {
             Owin(0, 3, 6);
             label.setText(inputPlayer2.getText() + " Wins!");
+            winPlayer2++;
         } else if (btnArray[1].getText().equals("O") && btnArray[4].getText().equals("O") && btnArray[7].getText().equals("O")) {
             Owin(1, 4, 7);
             label.setText(inputPlayer2.getText() + " Wins!");
+            winPlayer2++;
         } else if (btnArray[2].getText().equals("O") && btnArray[5].getText().equals("O") && btnArray[8].getText().equals("O")) {
             Owin(2, 5, 8);
             label.setText(inputPlayer2.getText() + " Wins!");
+            winPlayer2++;
         }
 
         /**
@@ -308,9 +373,11 @@ public class TicTacToe extends JPanel {
         else if (btnArray[0].getText().equals("O") && btnArray[4].getText().equals("O") && btnArray[8].getText().equals("O")) {
             Owin(0, 4, 8);
             label.setText(inputPlayer2.getText() + " Wins!");
+            winPlayer2++;
         } else if (btnArray[2].getText().equals("O") && btnArray[4].getText().equals("O") && btnArray[6].getText().equals("O")) {
             Owin(2, 4, 6);
             label.setText(inputPlayer2.getText() + " Wins!");
+            winPlayer2++;
         }
     }
 
