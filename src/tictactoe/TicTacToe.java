@@ -133,7 +133,7 @@ public class TicTacToe extends JPanel {
         playerNamePanel.setPreferredSize(new Dimension(200, 200));
 
         infoPanel = new JPanel();
-        infoPanel.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
+        //infoPanel.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
         infoPanel.setPreferredSize(new Dimension(333, 47));
 
         label = new JLabel("Welcome");
