@@ -66,6 +66,7 @@ public class TicTacToe extends JPanel {
         scorePanel.add(scoreLabel);
         scorePanel.add(player1ScoreLabel);
         scorePanel.add(player2ScoreLabel);
+        scorePanel.setBackground(Color.decode("#75adbe"));
         //scorePanel.setBorder(new EmptyBorder(0, 20, 0, 0));
         //scorePanel.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
 
@@ -115,6 +116,7 @@ public class TicTacToe extends JPanel {
 
         reversePlayer = new JCheckBox("Change starting player");
         reversePlayer.setFont(nameFont);
+        reversePlayer.setBackground(Color.decode("#75adbe"));
 
         /**
          * checks if the checkbox got updated and sets label and buttons
@@ -134,16 +136,19 @@ public class TicTacToe extends JPanel {
         playerNamePanel.add(inputPlayer2);
         playerNamePanel.add(reversePlayer);
         playerNamePanel.setPreferredSize(new Dimension(210, 200));
+        playerNamePanel.setBackground(Color.decode("#75adbe"));
 
         infoPanel = new JPanel();
         //infoPanel.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
         infoPanel.setPreferredSize(new Dimension(333, 47));
+        infoPanel.setBackground(Color.decode("#75adbe"));
 
         label = new JLabel("Welcome");
         label.setFont(labelFont);
         infoPanel.add(label);
 
         playGroundPanel = new JPanel();
+        playGroundPanel.setBackground(Color.decode("#75adbe"));
         playGroundPanel.setLayout(new GridLayout(3, 3));
         playGroundPanel.setPreferredSize(new Dimension(333, 333));
 
@@ -219,11 +224,13 @@ public class TicTacToe extends JPanel {
         });
 
         buttonPanel = new JPanel();
+        buttonPanel.setBackground(Color.decode("#75adbe"));
         buttonPanel.setPreferredSize(new Dimension(333, 50));
         buttonPanel.add(clearButton);
         buttonPanel.add(restartButton);
 
         playPanel = new JPanel();
+        playPanel.setBackground(Color.decode("#75adbe"));
 
         playPanel.add(infoPanel);
         playPanel.add(playGroundPanel);
@@ -235,6 +242,7 @@ public class TicTacToe extends JPanel {
         this.add(playerNamePanel);
         this.add(playPanel);
         this.add(scorePanel);
+        this.setBackground(Color.decode("#75adbe"));
 
     }
 

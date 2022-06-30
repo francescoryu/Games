@@ -4,6 +4,7 @@ import home.Home;
 import tictactoe.TicTacToe;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * @author: Francesco Ryu
@@ -16,7 +17,7 @@ public class Main extends JFrame{
     TicTacToe ticTacToe;
     Home home;
 
-    public Main() {
+    public Main() throws IOException {
         ticTacToe = new TicTacToe();
         home = new Home();
 
@@ -33,7 +34,7 @@ public class Main extends JFrame{
         this.setVisible(true);
     }
 
-    public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws UnsupportedLookAndFeelException, ClassNotFoundException, InstantiationException, IllegalAccessException, IOException {
         UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 
         new Main();
