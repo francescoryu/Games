@@ -104,7 +104,11 @@ public class Home extends JPanel {
             if (inputUser.getText().equals("what is your occupation?")) {
                 outputAI.setText("I am currently a student. I study at the KSH");
             }
-            if (inputUser.getText().equals("goodnight bob")) {
+            if (
+                    inputUser.getText().equals("goodnight bob") ||
+                            inputUser.getText().equals("goodnight") ||
+                            inputUser.getText().equals("sleep well")
+            ) {
                 outputAI.setText("goodnight, sleep well!!!");
             }
             if (inputUser.getText().equals("how old are you?")) {
@@ -116,13 +120,16 @@ public class Home extends JPanel {
             if (inputUser.getText().equals("why are you gae?")) {
                 outputAI.setText("who says I'm gae?");
             }
+            if (inputUser.getText().equals("what are your hobbies?")) {
+                outputAI.setText("I like to convert things into binary!");
+            }
             if (inputUser.getText().equals("who made you?")) {
                 outputAI.setText("I'm a child from Francesco and Dianyra");
             }
-            if (inputUser.getText().equals("rickroll")) {
+            if (inputUser.getText().equals("bob")) {
                 outputAI.setText("I trolled you");
                 try {
-                    Desktop.getDesktop().browse(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ").toURI());
+                    Desktop.getDesktop().browse(new URL("https://www.youtube.com/watch?v=xvFZjo5PgG0").toURI());
                 } catch (Exception ev) {}
             }
             inputUser.setText("");
