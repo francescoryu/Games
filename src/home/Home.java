@@ -56,6 +56,7 @@ public class Home extends JPanel {
 
         inputUser = new JTextField(33);
         inputUser.setFont(contentFont);
+        inputUser.requestFocus();
 
         submitButton = new JButton("Submit");
         submitButton.setFont(contentFont);
@@ -68,7 +69,10 @@ public class Home extends JPanel {
         outputAI.setFont(contentFont);
         outputAI.setHorizontalAlignment(JTextField.CENTER);
 
+
+
         submitButton.addActionListener(e -> {
+            inputUser.requestFocus();
             if (
                             inputUser.getText().equals("hello") ||
                             inputUser.getText().equals("hi") ||
