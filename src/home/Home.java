@@ -61,7 +61,7 @@ public class Home extends JPanel {
         submitButton = new JButton("Submit");
         submitButton.setFont(contentFont);
 
-        outputAI = new JTextField("Type a text/sentence from the list above");
+        outputAI = new JTextField("Bob");
         outputAI.setEditable(false);
         outputAI.setBackground(Color.WHITE);
         outputAI.setPreferredSize(new Dimension(400, 50));
@@ -105,6 +105,9 @@ public class Home extends JPanel {
             }
             if (inputUser.getText().equals("goodnight bob")) {
                 outputAI.setText("goodnight, sleep well!!!");
+            }
+            if (inputUser.getText().equals("how old are you?")) {
+                outputAI.setText("I'm very young, I was born on the 18.06.2021!");
             }
             inputUser.setText("");
         });
