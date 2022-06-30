@@ -28,6 +28,8 @@ public class Main extends JFrame{
         this.add(tabbedPane);
         this.setSize(new Dimension(900, 600));
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setResizable(false);
+        this.setLocation(150, 150);
         this.setVisible(true);
     }
 

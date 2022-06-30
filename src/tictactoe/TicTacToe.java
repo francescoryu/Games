@@ -1,6 +1,7 @@
 package tictactoe;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -51,7 +52,7 @@ public class TicTacToe extends JPanel {
         Font nameFont = new Font("Monaco", Font.BOLD, 14);
 
         scorePanel = new JPanel();
-        scorePanel.setPreferredSize(new Dimension(200, 240));
+        scorePanel.setPreferredSize(new Dimension(210, 200));
 
         scoreLabel = new JLabel("         Score         ");
         scoreLabel.setFont(labelFont);
@@ -65,11 +66,13 @@ public class TicTacToe extends JPanel {
         scorePanel.add(scoreLabel);
         scorePanel.add(player1ScoreLabel);
         scorePanel.add(player2ScoreLabel);
+        //scorePanel.setBorder(new EmptyBorder(0, 20, 0, 0));
+        //scorePanel.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
 
         playerNamePanel = new JPanel();
 
         inputPlayer1 = new JTextField();
-        inputPlayer1.setColumns(15);
+        inputPlayer1.setColumns(13);
         inputPlayer1.setFont(nameFont);
 
         /**
@@ -87,7 +90,7 @@ public class TicTacToe extends JPanel {
         });
 
         inputPlayer2 = new JTextField();
-        inputPlayer2.setColumns(15);
+        inputPlayer2.setColumns(13);
         inputPlayer2.setFont(nameFont);
 
         /**
@@ -130,7 +133,8 @@ public class TicTacToe extends JPanel {
         playerNamePanel.add(player2Label);
         playerNamePanel.add(inputPlayer2);
         playerNamePanel.add(reversePlayer);
-        playerNamePanel.setPreferredSize(new Dimension(220, 200));
+        playerNamePanel.setPreferredSize(new Dimension(210, 200));
+        playerNamePanel.setBorder(new EmptyBorder(0, 0, 0, 20));
 
         infoPanel = new JPanel();
         //infoPanel.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
@@ -143,6 +147,7 @@ public class TicTacToe extends JPanel {
         playGroundPanel = new JPanel();
         playGroundPanel.setLayout(new GridLayout(3, 3));
         playGroundPanel.setPreferredSize(new Dimension(333, 333));
+
         for (int i = 0; i < 9; i++) {
             btnArray[i] = new JButton();
             btnArray[i].addActionListener(this::actionPerformed);
@@ -215,7 +220,7 @@ public class TicTacToe extends JPanel {
         });
 
         buttonPanel = new JPanel();
-        buttonPanel.setPreferredSize(new Dimension(333, 47));
+        buttonPanel.setPreferredSize(new Dimension(333, 50));
         buttonPanel.add(clearButton);
         buttonPanel.add(restartButton);
 
@@ -224,10 +229,11 @@ public class TicTacToe extends JPanel {
         playPanel.add(infoPanel);
         playPanel.add(playGroundPanel);
         playPanel.add(buttonPanel);
-        playPanel.setPreferredSize(new Dimension(333, 470));
+        playPanel.setPreferredSize(new Dimension(420, 500));
+        //playPanel.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
 
 
-        this.add(playerNamePanel, BorderLayout.WEST);
+        this.add(playerNamePanel);
         this.add(playPanel);
         this.add(scorePanel);
 
@@ -377,9 +383,11 @@ public class TicTacToe extends JPanel {
             Owin(2, 4, 6);
             label.setText(inputPlayer2.getText() + " Wins!");
             winPlayer2++;
-        }
-        else if (cntrTie == 9) {
+        } else if (cntrTie == 9) {
             label.setText("It's a tie!");
+            for (int i = 0; i < 9; i++) {
+                btnArray[i].setEnabled(false);
+            }
         }
     }
 
