@@ -126,6 +126,9 @@ public class Home extends JPanel {
             if (inputUser.getText().equals("who made you?")) {
                 outputAI.setText("I'm a child from Francesco and Dianyra");
             }
+            if (inputUser.getText().equals("who is your hero?")) {
+                outputAI.setText("my hero is Desmond Doss");
+            }
             if (inputUser.getText().equals("bob")) {
                 outputAI.setText("I trolled you");
                 try {
