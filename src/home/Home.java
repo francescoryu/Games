@@ -116,6 +116,9 @@ public class Home extends JPanel {
             if (inputUser.getText().equals("why are you gae?")) {
                 outputAI.setText("who says I'm gae?");
             }
+            if (inputUser.getText().equals("who made you?")) {
+                outputAI.setText("I'm a child from Francesco and Dianyra");
+            }
             if (inputUser.getText().equals("rickroll")) {
                 outputAI.setText("I trolled you");
                 try {
