@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
@@ -35,7 +36,7 @@ public class Home extends JPanel {
     JLabel welcomeLabel;
     JLabel imgLabel;
 
-    public Home() throws IOException {
+    public Home() {
         this.setLayout(new BorderLayout());
 
         Font welcomeFont = new Font(Font.SERIF, Font.PLAIN, 40);
@@ -108,6 +109,18 @@ public class Home extends JPanel {
             }
             if (inputUser.getText().equals("how old are you?")) {
                 outputAI.setText("I'm very young, I was born on the 18.06.2021!");
+            }
+            if (inputUser.getText().equals("what are you doing?")) {
+                outputAI.setText("I'm talking to you, of course");
+            }
+            if (inputUser.getText().equals("why are you gae?")) {
+                outputAI.setText("who says I'm gae?");
+            }
+            if (inputUser.getText().equals("rickroll")) {
+                outputAI.setText("I trolled you");
+                try {
+                    Desktop.getDesktop().browse(new URL("https://www.youtube.com/watch?v=dQw4w9WgXcQ").toURI());
+                } catch (Exception ev) {}
             }
             inputUser.setText("");
         });
