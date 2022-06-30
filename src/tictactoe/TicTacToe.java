@@ -246,7 +246,7 @@ public class TicTacToe extends JPanel {
      */
 
     public void actionPerformed(ActionEvent e) {
-        Font buttonFont = new Font("Monaco", Font.BOLD, 50);
+        Font buttonFont = new Font("Monaco", Font.BOLD, 55);
         for (int i = 0; i < 9; i++) {
             if (e.getSource() == btnArray[i]) {
                 if (player1Turn) {
