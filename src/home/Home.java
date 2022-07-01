@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.net.http.HttpClient;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
@@ -38,6 +39,8 @@ public class Home extends JPanel {
 
     public Home() {
         this.setLayout(new BorderLayout());
+
+        HttpClient httpClient;
 
         Font welcomeFont = new Font(Font.SERIF, Font.PLAIN, 40);
         Font contentFont = new Font(Font.SERIF, Font.PLAIN, 20);
@@ -94,7 +97,7 @@ public class Home extends JPanel {
             if (
                             inputUser.getText().equals("not so good") ||
                             inputUser.getText().equals("bad") ||
-                            inputUser.getText().equals("shits")
+                            inputUser.getText().equals("shit")
             ) {
                 outputAI.setText("oh no, it will be alright!!!");
             }
@@ -144,7 +147,11 @@ public class Home extends JPanel {
         questionSuggestions.setFont(contentFont);
         questionSuggestions.setBorder(new MatteBorder(2, 2, 2, 2, Color.BLACK));
         imgLabel = new JLabel();
-        ImageIcon imgIcon = new ImageIcon("C:\\Users\\franc\\Games\\src\\util\\robot.png");
+
+        //PC
+        //ImageIcon imgIcon = new ImageIcon("C:\\Users\\franc\\Games\\src\\util\\robot.png");
+        //Laptop
+        ImageIcon imgIcon = new ImageIcon("C:\\Users\\Francesco Ryu\\Desktop\\Games\\src\\util\\robot.png");
 
         imgLabel.setIcon(imgIcon);
 
