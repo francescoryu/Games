@@ -1,6 +1,7 @@
 package util;
 
 import home.Home;
+import soccer.Soccer;
 import tictactoe.TicTacToe;
 import javax.swing.*;
 import java.awt.*;
@@ -15,15 +16,18 @@ import java.io.IOException;
 public class Main extends JFrame{
     JTabbedPane tabbedPane;
     TicTacToe ticTacToe;
+    Soccer soccer;
     Home home;
 
     public Main() throws IOException {
         ticTacToe = new TicTacToe();
         home = new Home();
+        soccer = new Soccer();
 
         tabbedPane = new JTabbedPane();
         tabbedPane.add("Home", home);
         tabbedPane.addTab("Tic-Tac-Toe", ticTacToe);
+        tabbedPane.addTab("Soccer Sim", soccer);
 
 
         this.add(tabbedPane);
